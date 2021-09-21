@@ -3,6 +3,7 @@ package main
 import (
 	gamesrv "github.com/TheAlchemistKE/Minesweeper/internal/core/services/gameserver"
 	"github.com/TheAlchemistKE/Minesweeper/internal/repositories/gamesrepo"
+	"github.com/TheAlchemistKE/Minesweeper/pkg/uidgen"
 	"github.com/gin-gonic/gin"
 )
 
