@@ -4,6 +4,7 @@ import (
 	"errors"
 	"github.com/TheAlchemistKE/Minesweeper/internal/core/domain"
 	"github.com/TheAlchemistKE/Minesweeper/internal/core/ports"
+	"github.com/TheAlchemistKE/Minesweeper/pkg/apperrors"
 	"github.com/TheAlchemistKE/Minesweeper/pkg/uidgen"
 )
 

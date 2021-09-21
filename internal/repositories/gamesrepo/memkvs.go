@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/TheAlchemistKE/Minesweeper/internal/core/domain"
+	"github.com/TheAlchemistKE/Minesweeper/pkg/apperrors"
 )
 
 type memkvs struct {
