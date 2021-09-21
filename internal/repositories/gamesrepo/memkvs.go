@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/TheAlchemistKE/Minesweeper/internal/core/domain"
-	"github.com/TheAlchemistKE/Minesweeper/pkg/apperrors"
 )
 
 type memkvs struct {
@@ -20,19 +19,19 @@ func (repo *memkvs) Get(id string) (domain.Game, error) {
 		game := domain.Game{}
 		err := json.Unmarshal(value, &game)
 		if err != nil {
-			return domain.Game{}, errors.New(apperrors.Internal, err, "fail to get value from kvs")
+			return domain.Game{}, errors.New("fail to get value from kvs")
 		}
 
 		return game, nil
 	}
 
-	return domain.Game{}, errors.New(apperrors.NotFound, nil, "game not found in kvs")
+	return domain.Game{}, errors.New("game not found in kvs")
 }
 
 func (repo *memkvs) Save(game domain.Game) error {
 	bytes, err := json.Marshal(game)
 	if err != nil {
-		return errors.New(apperrors.InvalidInput, err, "game fails at marshal into json string")
+		return errors.New("game fails at marshal into json string")
 	}
 
 	repo.kvs[game.ID] = bytes

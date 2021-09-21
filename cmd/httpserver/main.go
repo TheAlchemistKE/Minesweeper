@@ -2,6 +2,7 @@ package main
 
 import (
 	gamesrv "github.com/TheAlchemistKE/Minesweeper/internal/core/services/gameserver"
+	"github.com/TheAlchemistKE/Minesweeper/internal/handlers/gamehandler"
 	"github.com/TheAlchemistKE/Minesweeper/internal/repositories/gamesrepo"
 	"github.com/TheAlchemistKE/Minesweeper/pkg/uidgen"
 	"github.com/gin-gonic/gin"
@@ -10,7 +11,7 @@ import (
 func main() {
 	gamesRepository := gamesrepo.NewMemKVS()
 	gamesService := gamesrv.New(gamesRepository, uidgen.New())
-	gamesHandler := gamehdl.NewHTTPHandler(gamesService)
+	gamesHandler := gamehandler.NewHTTPHandler(gamesService)
 
 	router := gin.New()
 	router.GET("/games/:id", gamesHandler.Get)
